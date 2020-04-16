@@ -1,5 +1,5 @@
 export interface ImageInfo {
-  id: number;
+  id: string;
   name: string;
   locationName: string;
   notes: string;

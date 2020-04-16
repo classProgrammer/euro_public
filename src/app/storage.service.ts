@@ -1,8 +1,12 @@
 import {ImageInfo} from './detail-form/interfaces/ImageInfo';
 import {Observable, of} from 'rxjs';
 import {IStorageService} from './service_interfaces/IStorageService';
+import {Injectable} from '@angular/core';
+import * as uuid from 'uuid';
 
-
+@Injectable({
+  providedIn: 'root'
+})
 export class StorageService implements IStorageService {
 
   constructor() {
@@ -14,8 +18,6 @@ export class StorageService implements IStorageService {
 
   images: ImageInfo[] = [];
 
-  currentId = 0;
-
   private getEmptyImage(): ImageInfo {
     return {
       id: this.nextId(),
@@ -25,20 +27,9 @@ export class StorageService implements IStorageService {
       pictureUrl: ''
     };
   }
-  private nextId() {
-    const id = this.currentId;
-    this.currentId += 1;
-    return id;
-  }
 
-  private getImage(): ImageInfo {
-    return {
-      id: this.nextId(),
-      name: 'Name',
-      notes: 'I have to note',
-      locationName: 'Fill Murray',
-      pictureUrl: 'https://www.fillmurray.com/400/400'
-    };
+  private nextId() {
+    return uuid.v4();
   }
 
   getImages(): Observable<ImageInfo[]> {
@@ -59,7 +50,8 @@ export class StorageService implements IStorageService {
     if (id === 'new') {
       return of(this.getEmptyImage());
     } else {
-      return of(this.images[+id]);
+      const idx = this.images.findIndex(x => x.id === id);
+      return of(this.images[idx]);
     }
   }
 }
