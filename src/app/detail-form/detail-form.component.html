@@ -22,7 +22,7 @@
           <input name="picture URL" matInput required [(ngModel)]="imageInfo.pictureUrl">
         </mat-form-field>
         <br>
-        <button (click)="onSaveClick()" [routerLink]="['/home']"  [disabled]="requiredIsEmpty()" class="give-me-some-space" mat-raised-button matTooltip="Save">
+        <button (click)="onSaveClick()" [disabled]="requiredIsEmpty()" class="give-me-some-space" mat-raised-button matTooltip="Save">
           Save
         </button>
         <button [routerLink]="['/home']"  class="give-me-some-space" mat-raised-button matTooltip="Home">

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ImageInfo} from './interfaces/ImageInfo';
 import {INJECTOR, STORAGE_SERVICE_TOKEN} from '../service_interfaces/token';
 
@@ -15,7 +15,7 @@ export class DetailFormComponent implements OnInit, OnDestroy {
   routesubs;
   imageSubs;
   storageService;
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.storageService = INJECTOR.get(STORAGE_SERVICE_TOKEN);
   }
 
@@ -24,7 +24,7 @@ export class DetailFormComponent implements OnInit, OnDestroy {
       this.id = params.id;
 
       this.imageSubs = this.storageService.imageInfo(this.id).subscribe(image => {
-        this.imageInfo = image
+        this.imageInfo = image;
       }
       );
     });
@@ -41,5 +41,6 @@ export class DetailFormComponent implements OnInit, OnDestroy {
 
   onSaveClick() {
     this.storageService.UpdateImage(this.imageInfo);
+    this.router.navigate(['/home']);
   }
 }
