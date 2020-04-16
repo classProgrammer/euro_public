@@ -23,10 +23,10 @@
         </mat-form-field>
         <br>
         <button (click)="onSaveClick()" [disabled]="requiredIsEmpty()" class="give-me-some-space" mat-raised-button matTooltip="Save">
-          Save
+          <mat-icon>save</mat-icon> Save
         </button>
         <button [routerLink]="['/home']"  class="give-me-some-space" mat-raised-button matTooltip="Home">
-          Home
+          <mat-icon>home</mat-icon> Home
         </button>
       </form>
   </mat-card>

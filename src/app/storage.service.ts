@@ -4,9 +4,7 @@ import {IStorageService} from './service_interfaces/IStorageService';
 import {Injectable} from '@angular/core';
 import * as uuid from 'uuid';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class StorageService implements IStorageService {
 
   constructor() {

@@ -1,7 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ImageInfo} from './interfaces/ImageInfo';
-import {INJECTOR, STORAGE_SERVICE_TOKEN} from '../service_interfaces/token';
+import {STORAGE_SERVICE_TOKEN} from '../service_interfaces/token';
+import {IStorageService} from '../service_interfaces/IStorageService';
 
 @Component({
   selector: 'app-detail-form',
@@ -14,9 +15,9 @@ export class DetailFormComponent implements OnInit, OnDestroy {
   imageInfo: ImageInfo;
   routesubs;
   imageSubs;
-  storageService;
-  constructor(private route: ActivatedRoute, private router: Router) {
-    this.storageService = INJECTOR.get(STORAGE_SERVICE_TOKEN);
+
+  constructor(private route: ActivatedRoute, private router: Router, @Inject(STORAGE_SERVICE_TOKEN) private storageService: IStorageService) {
+    console.log(storageService);
   }
 
   ngOnInit() {

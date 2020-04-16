@@ -1,6 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ImageInfo} from '../detail-form/interfaces/ImageInfo';
-import {INJECTOR, STORAGE_SERVICE_TOKEN} from '../service_interfaces/token';
+import {STORAGE_SERVICE_TOKEN} from '../service_interfaces/token';
+import {IStorageService} from '../service_interfaces/IStorageService';
 
 @Component({
   selector: 'app-home-grid',
@@ -11,10 +12,8 @@ export class HomeGridComponent implements OnInit, OnDestroy {
 
   images: ImageInfo[];
   subscription;
-  storageService;
 
-  constructor() {
-    this.storageService = INJECTOR.get(STORAGE_SERVICE_TOKEN);
+  constructor(@Inject(STORAGE_SERVICE_TOKEN) private storageService: IStorageService) {
   }
 
   ngOnInit(): void {

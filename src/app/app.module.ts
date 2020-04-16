@@ -52,6 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HomeGridComponent } from './home-grid/home-grid.component';
 import { DetailFormComponent } from './detail-form/detail-form.component';
+import {StorageService} from './storage.service';
+import {STORAGE_SERVICE_TOKEN} from './service_interfaces/token';
 
 @NgModule({
     declarations: [
@@ -146,7 +148,7 @@ import { DetailFormComponent } from './detail-form/detail-form.component';
     PortalModule,
     ScrollingModule,
   ],
-  providers: [],
+  providers: [{provide: STORAGE_SERVICE_TOKEN, useClass: StorageService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
