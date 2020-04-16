@@ -37,7 +37,9 @@ export class StorageService implements IStorageService {
   }
 
   UpdateImage(image: ImageInfo) {
-    const idx = this.images.findIndex(x => x.id === image.id);
+    const idx = this.images.findIndex(x => {
+      return x.id === image.id;
+    });
     if (idx < 0) {
       this.images.push(image);
     } else {
