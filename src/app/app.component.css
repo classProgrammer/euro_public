@@ -1,0 +1,25 @@
+.menu {
+  padding-right: 0.5em;
+}
+
+.background {
+  background: whitesmoke;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.content {
+  padding-bottom: 1em;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  margin: auto;
+}

@@ -1,0 +1,28 @@
+<div class="center-screen">
+  <mat-card class="the-container">
+    <mat-card-header>
+    </mat-card-header>
+    <mat-card-content class="">
+      <mat-grid-list cols="4" rowHeight="300"  gutterSize="0.2em">
+
+        <mat-grid-tile *ngFor="let image of images" rowspan="1" colspan="1" >
+          <div>
+            <img src="{{image.pictureUrl}}">
+            <div class="button-container">
+              <button [routerLink]="['/edit', image.id]" class="image-button" mat-mini-fab matTooltip="Edit Image">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile class="add-menu" rowspan="1" colspan="1" >
+          <button [routerLink]="['/edit', 'new']" mat-mini-fab matTooltip="Add Image">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,33 @@
+<div class="center-screen">
+  <mat-card>
+      <form name="Form">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input name="name" matInput required [(ngModel)]="imageInfo.name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Location Name </mat-label>
+          <input name="location name" matInput [(ngModel)]="imageInfo.locationName">
+        </mat-form-field>
+        <br>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Textarea</mat-label>
+            <textarea name="notes" matInput [(ngModel)]="imageInfo.notes"></textarea>
+          </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Picture URL</mat-label>
+          <input name="picture URL" matInput required [(ngModel)]="imageInfo.pictureUrl">
+        </mat-form-field>
+        <br>
+        <button (click)="onSaveClick()" [routerLink]="['/home']"  [disabled]="requiredIsEmpty()" class="give-me-some-space" mat-raised-button matTooltip="Save">
+          Save
+        </button>
+        <button [routerLink]="['/home']"  class="give-me-some-space" mat-raised-button matTooltip="Home">
+          Home
+        </button>
+      </form>
+  </mat-card>
+</div>

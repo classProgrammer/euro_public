@@ -1,0 +1,82 @@
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2em;
+}
+
+.main {
+  width: 100%;
+  justify-content: center;
+}
+
+.the-container {
+  width: 100%;
+  max-width: 1600px;
+  padding: 0.4em;
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.image-button {
+  display: none;
+}
+.image-button-delete {
+  display: none;
+}
+
+.give-me-some-space {
+  margin-left: 8px;
+}
+
+.give-me-more-space {
+  margin-left: 24px;
+}
+
+.button-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.div-overflow {
+  height: 90%;
+  width: 90%;
+  margin-left: 0.2em;
+}
+
+.mat-actions {
+  height: 125px;
+}
+
+mat-grid-tile:hover .image-button {
+  display: inline;
+  margin-right: 0.5em;
+}
+
+mat-grid-tile:hover .image-button-delete {
+  display: inline;
+}
+
+mat-grid-tile {
+
+}
+
+.scrollable {
+  overflow-y: scroll;
+}
+
+.scrollable-action {
+  overflow-y: scroll;
+  width: 100%;
+  height: 90%;
+}
+
+.add-menu {
+  background: whitesmoke;
+}
